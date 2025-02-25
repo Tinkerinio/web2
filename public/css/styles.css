@@ -78,18 +78,13 @@ button:hover {
     margin-top: 20px;
 }
 
-
 .book {
     background: #f8e8d0;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #8b5e3b; /* Decorative border around each book */
     position: relative;
-    border-bottom: 2px dashed #8b5e3b; /* Decorative dashed line */
-}
-
-.book:last-child {
-    border-bottom: none; /* Remove border from the last book */
 }
 
 /* Links */
