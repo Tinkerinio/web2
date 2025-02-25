@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Books</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Books</h1>
+
+        <!-- Add Book Form -->
+        <h2>Add a New Book</h2>
+        <form action="/admin-books/add" method="POST">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <input type="text" name="genres" placeholder="Genres (comma separated)" required>
+            <button type="submit">Add Book</button>
+        </form>
+
+        <!-- Book List -->
+        <h2>Book List</h2>
+        <div class="books">
+            <% if (books.length > 0) { %>
+                <% books.forEach(book => { %>
+                    <div class="book">
+                        <h3><%= book.title %></h3>
+                        <p>Author: <%= book.author %></p>
+                        <p>Genres: <%= book.genres.join(', ') %></p>
+                        <form action="/admin-books/delete" method="POST" style="display: inline;">
+                            <input type="hidden" name="bookId" value="<%= book._id %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No books available.</p>
+            <% } %>
+        </div>
+
+        <!-- Back to Dashboard -->
+        <a href="/dashboard" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

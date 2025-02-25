@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h1>Profile</h1>
+    <div>
+      <p>Email: <%= user.email %></p>
+      <p>Nickname: <%= user.nickname %></p>
+      <p>Role: <%= user.role %></p>
+    </div>
+    <a href="/">Back to Library</a>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, <%= user.name %>!</h1>
+        <p>Email: <%= user.email %></p>
+        <p>Role: <%= user.role %></p>
+
+        <!-- Show Admin Books link only for admins -->
+        <% if (user.role === 'admin') { %>
+            <a href="/admin-books" class="btn">Manage Books</a>
+        <% } %>
+
+        <!-- Link to Online Library -->
+        <a href="/library" class="btn">Go to Online Library</a>
+
+        <!-- Logout Button -->
+        <a href="/logout" class="btn logout">Logout</a>
+    </div>
+</body>
+</html>
