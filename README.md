@@ -62,6 +62,86 @@ The Online Library is a web application built with **Node.js**, **Express.js**, 
 ```bash
 npm install
 ```
+
+## API Documentation
+
+### Authentication
+
+- **POST /register**: Register a new user.
+  - **Request Body**:
+    ```json
+    {
+      "name": "Alex",
+      "email": "Alex123@example.com",
+      "password": "password123",
+      "role": "user"
+    }
+    ```
+  - **Response**: Redirects to `/login` on success.
+
+- **POST /login**: Log in a user.
+  - **Request Body**:
+    ```json
+    {
+      "email": "Alex123@example.com",
+      "password": "password123"
+    }
+    ```
+  - **Response**: Redirects to `/dashboard` on success.
+
+- **GET /logout**: Log out the user.
+  - **Response**: Redirects to `/`.
+
+### Dashboard
+
+- **GET /dashboard**: Display the user's dashboard.
+  - **Response**: Renders `dashboard.ejs`.
+
+### Library
+
+- **GET /library**: Display the book collection.
+  - **Response**: Renders `library.ejs`.
+
+### Admin Books
+
+- **GET /admin-books**: Display the admin books page (for admins only).
+  - **Response**: Renders `admin-books.ejs`.
+
+- **POST /admin-books/add**: Add a new book (for admins only).
+  - **Request Body**:
+    ```json
+    {
+      "title": "Book Title",
+      "author": "Book Author",
+      "genres": "Genre1, Genre2"
+    }
+    ```
+  - **Response**: Redirects to `/admin-books` on success.
+
+- **POST /admin-books/delete**: Delete a book (for admins only).
+  - **Request Body**:
+    ```json
+    {
+      "bookId": "book_id"
+    }
+    ```
+  - **Response**: Redirects to `/admin-books` on success.
+
+### User Profile
+
+- **GET /user-profile**: Display the user's profile with their added books.
+  - **Response**: Renders `user-profile.ejs`.
+
+- **POST /user-profile/add**: Add a book to the user's profile.
+  - **Request Body**:
+    ```json
+    {
+      "bookId": "book_id"
+    }
+    ```
+  - **Response**: Redirects to `/user-profile` on success.
+
+
 ## Division of Work
 
 ### Alsalim:
